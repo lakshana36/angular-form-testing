@@ -1,0 +1,99 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+
+  <h1>Employee Application Form</h1>
+  <form [formGroup]="application_form">
+    <div>
+      <label for="firstname">First Name</label>
+      <input class="form-control" type="text" formControlName="firstname" name="firstname" autocomplete="off" required>
+      <div class="alert alert-danger" *ngIf="application_form.get('firstname').touched && application_form.get('firstname').errors">First Name is Required</div>
+    </div>
+    <br>
+    <div>
+      <label for="fullname">Full Name</label>
+      <input class="form-control" type="text" formControlName="fullname" name="fullname" autocomplete="off" required>
+      <div class="alert alert-danger" *ngIf="application_form.get('fullname').touched && application_form.get('fullname').errors">Full Name is Required</div>
+    </div>
+    <br>
+    <div>
+      <label for="designation">Designation</label>
+      <select name="designation" class="form-control">
+        <option value="">Employee</option>
+        <option value="">Team Lead</option>
+        <option value="">Technical Associate</option>
+        <option value="">Marketing Lead</option>
+      </select>
+    </div>
+    <br>
+    <div>
+      <label for="employeeCode">Employee Code</label>
+      <input class="form-control" type="text" maxlength="7" formControlName="employeeCode" name="employeeCode" autocomplete="off"
+        required>
+      <div class="alert alert-danger" *ngIf="application_form.get('employeeCode').touched && application_form.get('employeeCode').errors">Employee Code pattern doesn't match.</div>
+    </div>
+    <br>
+    <div>
+      <label for="bloodGroup">Blood Group</label>
+      <select class="form-control" name="bloodGroup" formControlName="bloodGroup" id="bloodGroup" required>
+        <option value="">Select</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="application_form.get('bloodGroup').touched && application_form.get('bloodGroup').invalid && application_form.get('bloodGroup').errors.required">
+        Select BG
+      </div>
+    </div>
+    <br>
+    <div>
+      <label for="reason">Reason for Issue&nbsp;&nbsp;&nbsp;</label>
+      <input type="radio" name="reason" value="New Employee">New Employee&nbsp;&nbsp;
+      <input type="radio" name="reason" value="Lost">Lost&nbsp;&nbsp;
+      <input type="radio" name="reason" value="Defaced">Defaced&nbsp;&nbsp;
+      <input type="radio" name="reason" value="Conversion">Conversion&nbsp;&nbsp;
+      <input type="radio" name="reason" value="Designation Change">Designation Change&nbsp;
+    </div>
+    <br>
+    <div>
+      <label for="dateOfEmployment">Date of Employment</label>
+      <input class="form-control" type="date" id="dateOfEmployment" required>
+      <span id="dateOfEmploymentError" class="spanHide"></span>
+    </div>
+    <br>
+    <div>
+      <label for="email">Email Id(Virtusa):</label>
+      <input class="form-control" type="email" id="email" name="email" formControlName="email">
+      <div class="alert alert-danger" *ngIf="application_form.get('email').touched && application_form.get('email').invalid && application_form.get('email').errors.pattern">Email Pattern Mismatch</div>
+    </div>
+    <br>
+    <div>
+      <label for="mobileNumber">Mobile Number:</label>
+      <input class="form-control" type="text" autocomplete="off" minlength="10" maxlength="10" pattern="[0-9]" id="mobileNumber"
+        required>
+      <span id="mobileNumberError" class="spanHide"></span>
+    </div>
+    <br>
+    <div>
+      <label for="emergencyContactNumber">Emergency Contact Number:</label>
+      <input class="form-control" type="text" autocomplete="off" minlength="10" maxlength="10" pattern="[0-9]" id="mobileNumber"
+        required>
+      <span id="emergencyContactNumberError" class="spanHide"></span>
+    </div>
+    <br>
+    <div>
+      <br>
+      <br>
+      <label for="signatureOfEmployee">Signature of Employee:</label>
+    </div>
+    <br>
+    <div>
+      <button class="btn btn-primary" [disabled]="application-form.get('Submit').invalid" formControlName="Submit" name="submit">Submit</button>
+    </div>
+  </form>
+</div>
